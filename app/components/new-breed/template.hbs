@@ -1,0 +1,53 @@
+<form>
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input value=name id="name" class="form-control" placeholder="Breed Name"}}
+  </div>
+
+  <div class="form-group">
+    <label for="activityLevel">Activity Level</label>
+    {{#power-select
+      options=activityLevels
+      selected=activityLevel
+      selectedItemComponent="power-select-value-name"
+      searchField="name"
+      placeholder="Select an Activity Level"
+      onchange=(action 'selectActivityLevel')
+      as |level|
+    }}
+      {{level.name}}: {{level.description}}
+    {{/power-select}}
+  </div>
+
+  <div class="form-group">
+    <label for="maintenanceLevel">Maintenance Level</label>
+    {{#power-select
+      options=maintenanceLevels
+      selected=maintenanceLevel
+      selectedItemComponent="power-select-value-name"
+      searchField="name"
+      placeholder="Select a Maintenance Level"
+      onchange=(action 'selectMaintenanceLevel')
+      as |level|
+    }}
+      {{level.name}}: {{level.description}}
+    {{/power-select}}
+  </div>
+
+  <div class="form-group">
+    <label for="size">Size</label>
+    {{#power-select
+      options=sizes
+      selected=size
+      selectedItemComponent="power-select-value-name"
+      searchField="name"
+      placeholder="Select a Size"
+      onchange=(action 'selectSize')
+      as |size|
+    }}
+      {{size.name}}: {{size.description}}
+    {{/power-select}}
+  </div>
+
+  <button class="btn" {{action 'saveBreed'}}>Save</button>
+</form>
