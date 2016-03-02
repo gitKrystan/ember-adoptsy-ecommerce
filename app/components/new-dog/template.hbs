@@ -82,11 +82,20 @@
 
   <div class="form-group">
     <label for="image-url">Add Image</label>
-    <div class="input-group">
-      {{input value=imageURL id="image-url" class="form-control" placeholder="Image URL"}}
-      <span class="input-group-btn">
-        <button {{action 'addImage'}} class="btn btn-default">Upload</button>
-      </span>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="image-caption">Add Caption</label>
+        {{input value=imageCaption id="image-caption" class="form-control" placeholder="Caption"}}
+      </div>
+      <div class="col-sm-6">
+        <label for="image-url">Add URL</label>
+        <div class="input-group">
+          {{input value=imageURL id="image-url" class="form-control" placeholder="Image URL"}}
+          <span class="input-group-btn">
+            <button {{action 'addImage'}} class="btn btn-default">Upload</button>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -94,10 +103,11 @@
     <div class="row">
       <div class="form-group">
         {{#each images as |image|}}
-          <div class="col-sm-3">
+          <div class="col-xs-3">
             <a class="thumbnail">
               <img src={{image.url}} alt="remove image"/>
               <span class="ado-span-link" {{action 'removeImage' image}}>x</span>
+              <span>{{image.caption}}</span>
             </a>
           </div>
         {{/each}}

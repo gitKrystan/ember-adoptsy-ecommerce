@@ -20,7 +20,11 @@ export default Ember.Component.extend({
     },
 
     addImage() {
-      this.get('images').pushObject({url: this.get('imageURL')});
+      var image = {
+        url: this.get('imageURL'),
+        caption: this.get('imageCaption')
+      }
+      this.get('images').pushObject(image);
       this.set('image', '');
     },
 
