@@ -25,6 +25,10 @@ export default Ember.Component.extend({
   size: '',
 
   actions: {
+    handleFocus(select, event) {
+      select.actions.open();
+    },
+
     selectActivityLevel(level) {
       this.set('activityLevel', level);
     },

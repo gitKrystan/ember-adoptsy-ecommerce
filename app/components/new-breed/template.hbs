@@ -1,17 +1,18 @@
 <form>
   <div class="form-group">
-    <label for="name">Name</label>
-    {{input value=name id="name" class="form-control" placeholder="Breed Name"}}
+    <label for="breed-name">Name</label>
+    {{input value=name id="breed-name" class="form-control" placeholder="Breed Name"}}
   </div>
 
   <div class="form-group">
-    <label for="activityLevel">Activity Level</label>
+    <label for="activity-level">Activity Level</label>
     {{#power-select
       options=activityLevels
       selected=activityLevel
       selectedItemComponent="power-select-value-name"
       searchField="name"
       placeholder="Select an Activity Level"
+      onfocus=(action "handleFocus")
       onchange=(action 'selectActivityLevel')
       as |level|
     }}
@@ -20,13 +21,14 @@
   </div>
 
   <div class="form-group">
-    <label for="maintenanceLevel">Maintenance Level</label>
+    <label for="maintenance-level">Maintenance Level</label>
     {{#power-select
       options=maintenanceLevels
       selected=maintenanceLevel
       selectedItemComponent="power-select-value-name"
       searchField="name"
       placeholder="Select a Maintenance Level"
+      onfocus=(action "handleFocus")
       onchange=(action 'selectMaintenanceLevel')
       as |level|
     }}
@@ -42,6 +44,7 @@
       selectedItemComponent="power-select-value-name"
       searchField="name"
       placeholder="Select a Size"
+      onfocus=(action "handleFocus")
       onchange=(action 'selectSize')
       as |size|
     }}
