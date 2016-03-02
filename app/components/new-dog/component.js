@@ -25,7 +25,8 @@ export default Ember.Component.extend({
         caption: this.get('imageCaption')
       }
       this.get('images').pushObject(image);
-      this.set('image', '');
+      this.set('imageURL', '');
+      this.set('imageCaption', '');
     },
 
     removeImage(image) {
@@ -47,7 +48,17 @@ export default Ember.Component.extend({
         createdAt: Date.now(),
         adoptedAt: null
       };
+
       this.sendAction('saveDog', params);
+
+      this.set('name', '');
+      this.set('breeds', []);
+      this.set('sex', '');
+      this.set('weight', '');
+      this.set('birthday', '');
+      this.set('fee', '');
+      this.set('description', '');
+      this.set('images', []);
     }
   }
 });
