@@ -49,7 +49,13 @@ export default Ember.Component.extend({
         activity: this.get('activityLevel'),
         maintenance: this.get('maintenanceLevel')
       };
+
       this.sendAction('saveBreed', params);
+
+      this.set('name', '');
+      this.set('size', '');
+      this.set('activityLevel', '');
+      this.set('maintenanceLevel', '');
     }
   }
 });
