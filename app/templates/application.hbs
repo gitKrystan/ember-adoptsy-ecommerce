@@ -2,10 +2,10 @@
   <div class="container">
     <a class="navbar-brand" href="/">ADOPTSY</a>
     <div class="ado-navbar-doghouse">
-      <a href="#">
+      {{#link-to 'my-doghouse'}}
         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
         {{doghouse-count}}
-      </a>
+      {{/link-to}}
 
     </div>
   </div>

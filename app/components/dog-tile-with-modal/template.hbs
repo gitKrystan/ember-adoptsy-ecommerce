@@ -1,0 +1,9 @@
+<a data-toggle="modal" data-target={{concat "#dog-modal-" dog.id}}>
+  {{dog-tile dog=dog}}
+</a>
+
+<div class="modal fade" id={{concat "dog-modal-" dog.id}} tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    {{dog-modal-slide dog=dog}}
+  </div>
+</div>
