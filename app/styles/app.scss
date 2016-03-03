@@ -1,19 +1,24 @@
 // General
-$padding-typ: 15px;
+$ado-padding-typ: 15px;
 
 // Colors
 $white:                  #fff;
 $gray-lighter:           #eee;
-$gray-light:             darken($gray-lighter, 53%);
+$gray-light:             darken($gray-lighter, 30%);
 $gray:                   darken($gray-lighter, 67%);
 $gray-dark:              darken($gray-lighter, 80%);
 $gray-darker:            darken($gray-lighter, 87%);
 $gray-base:              darken($gray-lighter, 100%);
 
-$brand-primary:         #FF7043;
-$brand-success:         #5cb85c;
+$ado-amber:             #FFCA28;
+$ado-orange:            #FF7043;
+$ado-deep-orange:       #FF5722;
+$ado-pink:              #F50057;
+
+$brand-primary:         $ado-orange;
+$brand-success:         $ado-pink;
 $brand-info:            #5bc0de;
-$brand-warning:         #f0ad4e;
+$brand-warning:         $ado-amber;
 $brand-danger:          #d9534f;
 
 // Border
@@ -25,14 +30,15 @@ $border-radius-small: 0;
 $body-bg: $gray-lighter;
 
 // Navbar
-$navbar-default-brand-color: $white;
-$navbar-default-color: $white;
-$navbar-default-link-color: $white;
-$navbar-default-link-hover-color: $white;
-$navbar-default-link-active-color: $white;
-$navbar-default-brand-hover-color: $white;
-$navbar-default-bg: $brand-primary;
-$navbar-default-border: $brand-primary;
+$navbar-default-brand-color: $gray-light;
+$navbar-default-color: $gray-light;
+$navbar-default-link-color: $gray-light;
+$navbar-default-link-hover-color: $gray-light;
+$navbar-default-link-active-color: $gray-light;
+$navbar-default-brand-hover-color: $gray-light;
+$navbar-default-bg: $body-bg;
+$navbar-default-border: $body-bg;
+$navbar-padding-vertical: $ado-padding-typ;
 
 // Forms
 $input-border-focus: $brand-primary;
@@ -49,16 +55,43 @@ $input-color: $gray-base;
 
   .navbar-brand {
     font-family: 'Codystar', Helvetica, Arial, sans-serif;
-    font-size: 50px;
-    margin-top: -$padding-typ;
-    margin-bottom: -$padding-typ;
+    font-size: $navbar-height;
+    margin-bottom: -$ado-padding-typ;
   }
+
+  .ado-navbar-doghouse {
+    position: relative;
+    font-size: $navbar-height - $ado-padding-typ - 6.5px;
+    margin-bottom: -$ado-padding-typ;
+    padding-top: $ado-padding-typ/2;
+    padding-left: $ado-padding-typ;
+    padding-right: $ado-padding-typ;
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: $gray-light;
+    }
+
+    .badge {
+      background-color: $ado-pink;
+      color: $white;
+      position: absolute;
+      bottom: 10px;
+      right: 5px;
+    }
+  }
+}
+
+.glyphicon-heart {
+  @extend %pulse;
 }
 
 .container {
   width: 100%;
   background-color: $white;
-  padding: $padding-typ;
+  padding: $ado-padding-typ;
 
   @media (min-width: $screen-sm-min) {
     width: $screen-sm-min;
@@ -75,14 +108,14 @@ $input-color: $gray-base;
 
   @media (min-width: $screen-sm-min) {
     float: left;
-    margin-left: $padding-typ;
+    margin-left: $ado-padding-typ;
     height: ($screen-sm-min) / 2;
-    width: ($screen-sm-min) / 2 - (3/2 * $padding-typ);
+    width: ($screen-sm-min) / 2 - (3/2 * $ado-padding-typ);
   }
 
   @media (min-width: $screen-md-min) {
     height: ($screen-md-min) / 2;
-    width: ($screen-md-min) / 2 - (3/2 * $padding-typ);
+    width: ($screen-md-min) / 2 - (3/2 * $ado-padding-typ);
   }
 
   img {
@@ -92,9 +125,50 @@ $input-color: $gray-base;
   .ado-tile-info {
     min-height: 100px;
     position: absolute;
-    padding: $padding-typ;
+    padding: $ado-padding-typ;
     bottom: 20px;
     width: 100%;
     vertical-align: bottom;
   }
+}
+
+@-webkit-keyframes pulse {
+  25% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  75% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}
+
+@keyframes pulse {
+  25% {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  75% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+%pulse {
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+%pulse:hover {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
 }

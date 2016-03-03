@@ -5,6 +5,13 @@ export default Ember.Service.extend({
 
   add(dog) {
     this.get('dogs').pushObject(dog);
-    console.log(this.get('dogs'))
-  }
+  },
+
+  remove(dog) {
+    this.get('dogs').removeObject(dog);
+  },
+
+  includes(dog) {
+    return this.get('dogs').includes(dog);
+  },
 });
