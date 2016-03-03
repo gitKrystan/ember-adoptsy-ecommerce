@@ -70,10 +70,10 @@ $input-color: $gray-base;
     }
   }
 
-  .ado-navbar-doghouse {
+  .ado-doghouse {
     position: relative;
-    float: right;
     font-size: $navbar-height - $ado-padding-typ - 6.5px;
+    float: right;
     margin-bottom: -$ado-padding-typ;
     padding-top: $ado-padding-typ/2;
     padding-right: $ado-padding-typ/2;
@@ -117,16 +117,24 @@ $input-color: $gray-base;
 .ado-dog-tile {
   position: relative;
   width: 100%;
+  color: $white;
+  -webkit-text-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  -moz-text-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media (min-width: $screen-sm-min) {
     float: left;
     margin-left: $ado-padding-typ;
-    height: ($screen-sm-min) / 2;
+    height: ($screen-sm-min) / 2 - (3/2 * $ado-padding-typ);
     width: ($screen-sm-min) / 2 - (3/2 * $ado-padding-typ);
   }
 
   @media (min-width: $screen-md-min) {
-    height: ($screen-md-min) / 2;
+    height: ($screen-md-min) / 2 - (3/2 * $ado-padding-typ);
     width: ($screen-md-min) / 2 - (3/2 * $ado-padding-typ);
   }
 
@@ -141,6 +149,14 @@ $input-color: $gray-base;
     bottom: 20px;
     width: 100%;
     vertical-align: bottom;
+  }
+
+  .ado-dog-tile-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: $ado-padding-typ;
+    font-size: 50px;
   }
 }
 

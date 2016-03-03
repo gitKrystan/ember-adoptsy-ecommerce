@@ -1,4 +1,9 @@
 <img src={{dog.images.firstObject.url}} alt={{dog.images.firstObject.caption}} />
+{{#if dog.inDoghouse}}
+  <div class="ado-dog-tile-icon">
+    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+  </div>
+{{/if}}
 <div class="ado-tile-info">
   <h1>{{dog.name}}</h1>
   <p>{{dog.birthday}}</p>
