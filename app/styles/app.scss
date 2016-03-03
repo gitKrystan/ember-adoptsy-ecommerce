@@ -1,23 +1,59 @@
+// General
+$padding-typ: 15px;
+
+// Colors
 $white:                  #fff;
-$gray-lighter:           #E8EAED;
+$gray-lighter:           #eee;
 $gray-light:             darken($gray-lighter, 53%);
 $gray:                   darken($gray-lighter, 67%);
 $gray-dark:              darken($gray-lighter, 80%);
 $gray-darker:            darken($gray-lighter, 87%);
 $gray-base:              darken($gray-lighter, 100%);
 
-$brand-primary:         darken(#428bca, 6.5%);
+$brand-primary:         #FF7043;
 $brand-success:         #5cb85c;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
+// Border
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+// Main elements
 $body-bg: $gray-lighter;
 
-$padding-typ: 15px;
+// Navbar
+$navbar-default-brand-color: $white;
+$navbar-default-color: $white;
+$navbar-default-link-color: $white;
+$navbar-default-link-hover-color: $white;
+$navbar-default-link-active-color: $white;
+$navbar-default-brand-hover-color: $white;
+$navbar-default-bg: $brand-primary;
+$navbar-default-border: $brand-primary;
+
+// Forms
+$input-border-focus: $brand-primary;
+$input-color: $gray-base;
 
 @import 'bootstrap';
 @import "ember-power-select";
+@import url(https://fonts.googleapis.com/css?family=Codystar);
+
+.navbar {
+  .container {
+    background-color: transparent;
+  }
+
+  .navbar-brand {
+    font-family: 'Codystar', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    margin-top: -$padding-typ;
+    margin-bottom: -$padding-typ;
+  }
+}
 
 .container {
   width: 100%;
