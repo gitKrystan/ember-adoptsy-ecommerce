@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  doghouse: Ember.inject.service(),
+
   name: DS.attr(),
   breeds: DS.hasMany('breed'),
   sex: DS.attr(),
@@ -12,5 +14,9 @@ export default DS.Model.extend({
   appointments: DS.hasMany('appointment'),
   available: DS.attr(),
   createdAt: DS.attr(),
-  adoptedAt: DS.attr()
+  adoptedAt: DS.attr(),
+
+  inDoghouse: Ember.computed('doghouse.dogs.[]', function() {
+    return this.get('doghouse').includes(this);
+  })
 });

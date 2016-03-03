@@ -8,7 +8,10 @@
     {{dog.description}}
   </div>
   <div class="modal-footer">
-    <button {{action 'addToDoghouse' dog}} class="btn btn-primary" data-dismiss="modal">I Want To Meet {{dog.name}}</button>
+    {{#if dog.inDoghouse}}
+    {{else}}
+      <button {{action 'addToDoghouse' dog}} class="btn btn-primary">I Want To Meet {{dog.name}}</button>
+    {{/if}}
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
 </div><!-- /.modal-content -->

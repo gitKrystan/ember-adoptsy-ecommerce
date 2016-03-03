@@ -51,21 +51,33 @@ $input-color: $gray-base;
 .navbar {
   .container {
     background-color: transparent;
+    height: $navbar-height / 2;
+    padding: $ado-padding-typ / 2;
+
+    @media (min-width: $screen-sm-min) {
+      height: $navbar-height;
+      padding: $ado-padding-typ;
+    }
   }
 
   .navbar-brand {
     font-family: 'Codystar', Helvetica, Arial, sans-serif;
-    font-size: $navbar-height;
+    font-size: $navbar-height / 2;
     margin-bottom: -$ado-padding-typ;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: $navbar-height;
+    }
   }
 
   .ado-navbar-doghouse {
     position: relative;
+    float: right;
     font-size: $navbar-height - $ado-padding-typ - 6.5px;
     margin-bottom: -$ado-padding-typ;
     padding-top: $ado-padding-typ/2;
+    padding-right: $ado-padding-typ/2;
     padding-left: $ado-padding-typ;
-    padding-right: $ado-padding-typ;
 
     a:link,
     a:visited,
@@ -79,7 +91,7 @@ $input-color: $gray-base;
       color: $white;
       position: absolute;
       bottom: 10px;
-      right: 5px;
+      right: -2px;
     }
   }
 }
