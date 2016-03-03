@@ -12,6 +12,10 @@ export default Ember.Component.extend({
   actions: {
     addToDoghouse(dog) {
       this.get('doghouse').add(dog);
+    },
+
+    removeFromDoghouse(dog) {
+      this.get('doghouse').remove(dog);
     }
   }
 });

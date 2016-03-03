@@ -9,6 +9,7 @@
   </div>
   <div class="modal-footer">
     {{#if dog.inDoghouse}}
+      <button {{action 'removeFromDoghouse' dog}} class="btn btn-warning">Sorry, I No Longer Want To Meet {{dog.name}}</button>
     {{else}}
       <button {{action 'addToDoghouse' dog}} class="btn btn-primary">I Want To Meet {{dog.name}}</button>
     {{/if}}
