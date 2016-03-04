@@ -100,6 +100,10 @@ $input-color: $gray-base;
   @extend %pulse;
 }
 
+.glyphicon-fire {
+  @extend %flicker;
+}
+
 .container {
   width: 100%;
   background-color: $white;
@@ -162,7 +166,7 @@ $input-color: $gray-base;
     vertical-align: bottom;
   }
 
-  .ado-dog-tile-icon {
+  .ado-dog-tile-icons {
     position: absolute;
     top: 0;
     left: 0;
@@ -214,4 +218,45 @@ $input-color: $gray-base;
   animation-timing-function: ease;
   -webkit-animation-iteration-count: 2;
   animation-iteration-count: 2;
+}
+
+@-webkit-keyframes flicker {
+  33% {
+		transform: translateX(2%);
+	}
+  66% {
+		transform: translateX(-2%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes flicker {
+	33% {
+		transform: translateX(2%);
+	}
+  66% {
+		transform: translateX(-2%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+%flicker {
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+%flicker:hover {
+  -webkit-animation-name: flicker;
+  animation-name: flicker;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
