@@ -16,6 +16,7 @@ export default Ember.Route.extend({
     saveDog(params) {
       var newDog = this.store.createRecord('dog', params);
       var breeds = params.breeds;
+      var appointments = params.appointments;
       breeds.map(function(breed) {
         return breed.get('dogs').addObject(newDog);
       });

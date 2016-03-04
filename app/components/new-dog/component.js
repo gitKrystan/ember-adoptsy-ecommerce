@@ -54,7 +54,6 @@ export default Ember.Component.extend({
     },
 
     saveDog() {
-      debugger;
       var params = {
         name: this.get('name'),
         breeds: this.get('breeds'),
