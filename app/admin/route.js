@@ -19,9 +19,6 @@ export default Ember.Route.extend({
       breeds.map(function(breed) {
         return breed.get('dogs').addObject(newDog);
       });
-      // breeds.forEach(function(breed) {
-      //   breed.get('dogs').addObject(newDog);
-      // });
       var breedSaves = breeds.map(function(breed) {
         return breed.save();
       });

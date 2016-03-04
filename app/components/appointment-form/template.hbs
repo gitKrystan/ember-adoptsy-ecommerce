@@ -1,0 +1,58 @@
+<h1>MAKE AN APPOINTMENT</h1>
+{{#if stepOneIsShowing}}
+  <h3>STEP 1. Add dogs to your appointment.</h3>
+
+  <p>
+    During your appointment, you will be able to meet all of the available dogs on this list.*
+  </p>
+
+  {{my-dog-list}}
+
+  <p>
+    {{#link-to 'index'}}<button class="btn btn-default btn-block">Click here to add dogs to meet!</button>{{/link-to}}
+  </p>
+
+  {{#if doghouse.dogs}}
+    <button {{action 'finishStepOne'}} class="btn btn-primary btn-block">I'm done adding dogs. Take me to STEP 2!</button>
+  {{/if}}
+{{/if}}
+
+{{#if stepTwoIsShowing}}
+  <form>
+    <div class="form-group">
+      <label for="customerName">Name</label>
+      {{input value=name id="customerName" class="form-control" placeholder="Name"}}
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      {{input value=phoneNumber id="phoneNumber" class="form-control" placeholder="Phone Number"}}
+    </div>
+
+    <div class="form-group">
+      <label for="appointmentTime">Appointment Time</label>
+      <p>
+        Please pick a time between 9am and 4pm. :-)
+      </p>
+      {{input value=appointmentTime id="appointmentTime" class="form-control" type="datetime-local" min=tomorrow max=oneWeekFromToday placeholder=tomorrow}}
+    </div>
+
+    <div class="form-group">
+      <label>The following dogs are excited for your appointment!</label>
+      <ul>
+        {{#each doghouse.dogs as |dog|}}
+          <li>{{dog.name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <button {{action 'scheduleAppointment'}} class="btn btn-primary btn-block">Confirm appointment!</button>
+  </form>
+{{/if}}
+
+<hr>
+<p>
+  Note:
+  <br>
+  *We cannot guarantee that all of the dogs on your list will still be available at your appointment time,
+  so we recommend making your appointment for the soonest time possible if you have your eye on a specific dog.
+</p>

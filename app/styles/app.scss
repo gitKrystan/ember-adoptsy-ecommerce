@@ -160,6 +160,10 @@ $input-color: $gray-base;
   }
 }
 
+.ado-dog-list {
+  padding-bottom: $ado-padding-typ;
+}
+
 @-webkit-keyframes pulse {
   25% {
     -webkit-transform: scale(1.2);
