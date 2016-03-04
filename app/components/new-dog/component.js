@@ -1,6 +1,26 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  // nameIsValid: Ember.computed.notEmpty('name'),
+  // breedsIsValid: Ember.computed.notEmpty('breeds'),
+  // sexIsValid: Ember.computed.notEmpty('sex'),
+  // weightIsValid: Ember.computed.notEmpty('weight'),
+  // birthdayIsValid: Ember.computed.notEmpty('birthday'),
+  // feeIsValid: Ember.computed.notEmpty('fee'),
+  // descriptionIsValid: Ember.computed.gte('description.length', 100),
+  // imagesIsValid: Ember.computed.notEmpty('images'),
+  // formIsValid: Ember.computed.and(
+  //     'nameIsValid',
+  //     'breedsIsValid',
+  //     'sexIsValid',
+  //     'weightIsValid',
+  //     'birthdayIsValid',
+  //     'feeIsValid',
+  //     'descriptionIsValid',
+  //     'imagesIsValid'
+  //   ),
+  // submitIsDisabled: Ember.computed.not('formIsValid'),
+
   sortProperties: ['name'],
   sortedBreeds: Ember.computed.sort('allBreeds', 'sortProperties'),
   breeds: [],
@@ -34,6 +54,7 @@ export default Ember.Component.extend({
     },
 
     saveDog() {
+      debugger;
       var params = {
         name: this.get('name'),
         breeds: this.get('breeds'),

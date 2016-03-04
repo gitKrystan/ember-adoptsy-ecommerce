@@ -1,6 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  nameIsValid: Ember.computed.notEmpty('name'),
+  activityLevelIsValid: Ember.computed.notEmpty('activityLevel'),
+  maintenanceLevelIsValid: Ember.computed.notEmpty('maintenanceLevel'),
+  sizeIsValid: Ember.computed.notEmpty('size'),
+  formIsValid: Ember.computed.and('nameIsValid',
+      'activityLevelIsValid',
+      'maintenanceLevelIsValid',
+      'sizeIsValid'
+    ),
+  submitIsDisabled: Ember.computed.not('formIsValid'),
+
   activityLevels: [
     { name: 'low', description: 'couch potato' },
     { name: 'medium', description: 'long walks on the beach' },
