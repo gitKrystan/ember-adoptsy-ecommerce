@@ -23,7 +23,7 @@ export default Ember.Component.extend({
       var image = {
         url: this.get('imageURL'),
         caption: this.get('imageCaption')
-      }
+      };
       this.get('images').pushObject(image);
       this.set('imageURL', '');
       this.set('imageCaption', '');

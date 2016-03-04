@@ -22,7 +22,9 @@ export default Ember.Route.extend({
       var breedSaves = breeds.map(function(breed) {
         return breed.save();
       });
-      newDog.save().then(breedSaves);
+      newDog.save().then(breedSaves).catch(function(reason) {
+        return console.log(reason);
+      });
     }
   }
 });
