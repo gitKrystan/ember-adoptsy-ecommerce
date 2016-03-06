@@ -83,7 +83,7 @@
     <label for="image-url">Add Image</label>
     <div class="row">
       <div class="col-sm-6">
-        <label for="image-caption">Add Caption</label>
+        <label for="image-caption">Add Caption (optional)</label>
         {{input value=imageCaption id="image-caption" class="form-control" placeholder="Caption"}}
       </div>
       <div class="col-sm-6">
@@ -91,7 +91,7 @@
         <div class="input-group">
           {{input value=imageURL id="image-url" class="form-control" placeholder="Image URL"}}
           <span class="input-group-btn">
-            <button {{action 'addImage'}} class="btn btn-default">Upload</button>
+            <button {{action 'addImage'}} disabled={{imageUploadIsDisabled}} class="btn btn-default">Upload</button>
           </span>
         </div>
       </div>

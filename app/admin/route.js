@@ -16,14 +16,19 @@ export default Ember.Route.extend({
     saveDog(params) {
       var newDog = this.store.createRecord('dog', params);
       var breeds = params.breeds;
-      breeds.map(function(breed) {
-        return breed.get('dogs').addObject(newDog);
-      });
-      var breedSaves = breeds.map(function(breed) {
-        return breed.save();
-      });
-      newDog.save().then(breedSaves).catch(function(reason) {
-        return console.log(reason);
+      newDog.save().then(function() {
+        console.log('successfully saved newDog');
+        breeds.forEach(function(breed) {
+          breed.get('dogs').addObject(newDog);
+          breed.save().then(function() {
+            console.log('successfully saved breed: ' + breed.get('name'));
+          }, function(error) {
+            console.log('error saving breed: ' + error.errors);
+          });
+        });
+      }).catch(error => {
+        console.log('error saving dog:');
+        console.log(error.errors);
       });
     }
   }

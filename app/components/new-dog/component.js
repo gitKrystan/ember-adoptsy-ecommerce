@@ -21,6 +21,9 @@ export default Ember.Component.extend({
     ),
   submitIsDisabled: Ember.computed.not('formIsValid'),
 
+  imageUrlIsValid: Ember.computed.match('imageURL', /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?(\?([-a-zA-Z0-9@:%_\+.~#?&//=]+)|).(jpg|png|gif)/i),
+  imageUploadIsDisabled: Ember.computed.not('imageUrlIsValid'),
+
   sortProperties: ['name'],
   sortedBreeds: Ember.computed.sort('allBreeds', 'sortProperties'),
   breeds: [],
@@ -42,7 +45,7 @@ export default Ember.Component.extend({
     addImage() {
       var image = {
         url: this.get('imageURL'),
-        caption: this.get('imageCaption')
+        caption: this.get('imageCaption') || ''
       };
       this.get('images').pushObject(image);
       this.set('imageURL', '');
