@@ -30,6 +30,10 @@ export default Ember.Service.extend({
     this.set('preferences.sizes', preferenceObjects);
     this.filterDogs();
   },
+  setActivityLevelPreferences(preferenceObjects) {
+    this.set('preferences.activityLevels', preferenceObjects);
+    this.filterDogs();
+  },
 
   allDogs: [],
   filteredDogs: [],
@@ -47,17 +51,28 @@ export default Ember.Service.extend({
   filterDogs() {
     var allDogs = this.get('allDogs');
     var preferences = this.get('preferences');
+    var matchedDogs = allDogs.slice(0);
+
     var sizePreferenceNames = preferences.sizes.mapBy('name');
     if (sizePreferenceNames.length > 0) {
-      var matchedDogs = allDogs.filter(function(dog) {
+      matchedDogs = matchedDogs.filter(function(dog) {
         var dogBreeds = dog.get('breeds');
         return dogBreeds.any(function(breed) {
           return sizePreferenceNames.contains(breed.get('size').name);
         });
       });
-      this.set('filteredDogs', matchedDogs);
-    } else {
-      this.set('filteredDogs', allDogs);
     }
+
+    var activityLevelPreferenceNames = preferences.activityLevels.mapBy('name');
+    if (activityLevelPreferenceNames.length > 0) {
+      matchedDogs = matchedDogs.filter(function(dog) {
+        var dogBreeds = dog.get('breeds');
+        return dogBreeds.any(function(breed) {
+          return activityLevelPreferenceNames.contains(breed.get('activity').name);
+        });
+      });
+    }
+
+    this.set('filteredDogs', matchedDogs);
   }
 });
