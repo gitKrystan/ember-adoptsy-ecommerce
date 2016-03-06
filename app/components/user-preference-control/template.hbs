@@ -1,11 +1,11 @@
 <div class="col-sm-4">
   {{#power-select-multiple
-    options=userPreferences.sizes
+    options=dogFilter.sizes
     placeholder="Size"
-    selected=userPreferences.sizePreference
+    selected=dogFilter.preferences.sizes
     searchField="name"
     selectedItemComponent="power-select-value-name"
-    onchange=(action (mut sizePreference))
+    onchange=(action (mut sizePreferences))
     as |size|
   }}
     {{size.name}}: {{size.description}}

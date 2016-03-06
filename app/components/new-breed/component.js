@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  userPreferences: Ember.inject.service(),
+  dogFilter: Ember.inject.service(),
 
   nameIsValid: Ember.computed.notEmpty('name'),
   activityLevelIsValid: Ember.computed.notEmpty('activityLevel'),
@@ -14,13 +14,13 @@ export default Ember.Component.extend({
     ),
   submitIsDisabled: Ember.computed.not('formIsValid'),
 
-  activityLevels: Ember.computed.alias('userPreferences.activityLevels'),
+  activityLevels: Ember.computed.alias('dogFilter.activityLevels'),
   activityLevel: '',
 
-  maintenanceLevels: Ember.computed.alias('userPreferences.maintenanceLevels'),
+  maintenanceLevels: Ember.computed.alias('dogFilter.maintenanceLevels'),
   maintenanceLevel: '',
 
-  sizes: Ember.computed.alias('userPreferences.sizes'),
+  sizes: Ember.computed.alias('dogFilter.sizes'),
   size: '',
 
   actions: {
