@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  userPreferences: Ember.inject.service(),
+
   nameIsValid: Ember.computed.notEmpty('name'),
   activityLevelIsValid: Ember.computed.notEmpty('activityLevel'),
   maintenanceLevelIsValid: Ember.computed.notEmpty('maintenanceLevel'),
@@ -12,31 +14,17 @@ export default Ember.Component.extend({
     ),
   submitIsDisabled: Ember.computed.not('formIsValid'),
 
-  activityLevels: [
-    { name: 'low', description: 'couch potato' },
-    { name: 'medium', description: 'long walks on the beach' },
-    { name: 'high', description: 'mountaineer' },
-  ],
+  activityLevels: Ember.computed.alias('userPreferences.activityLevels'),
   activityLevel: '',
 
-  maintenanceLevels: [
-    { name: 'low', description: 'go with the flow' },
-    { name: 'medium', description: 'a little yappy' },
-    { name: 'high', description: 'prima donna' },
-  ],
+  maintenanceLevels: Ember.computed.alias('userPreferences.maintenanceLevels'),
   maintenanceLevel: '',
 
-  sizes: [
-    { name: 'extra-small', description: 'smaller than a breadbox' },
-    { name: 'small', description: "can't reach the counter" },
-    { name: 'medium', description: 'still fits on your lap' },
-    { name: 'large', description: 'thinks he fits on your lap' },
-    { name: 'extra-large', description: 'bear' },
-  ],
+  sizes: Ember.computed.alias('userPreferences.sizes'),
   size: '',
 
   actions: {
-    handleFocus(select, event) {
+    handleFocus(select) {
       select.actions.open();
     },
 

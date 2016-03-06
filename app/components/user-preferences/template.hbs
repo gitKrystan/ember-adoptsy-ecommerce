@@ -1,0 +1,13 @@
+<div class="col-sm-4">
+  {{#power-select-multiple
+    options=userPreferences.sizes
+    placeholder="Size"
+    selected=userPreferences.sizePreference
+    searchField="name"
+    selectedItemComponent="power-select-value-name"
+    onchange=(action (mut sizePreference))
+    as |size|
+  }}
+    {{size.name}}: {{size.description}}
+  {{/power-select-multiple}}
+</div>

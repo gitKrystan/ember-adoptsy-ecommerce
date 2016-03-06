@@ -1,5 +1,5 @@
 <div class="row">
-  {{#each model.dogs as |dog|}}
-    {{dog-tile-with-modal dog=dog}}
-  {{/each}}
+  {{user-preferences}}
 </div>
+<br>
+{{dog-tile-list breeds=model.breeds}}
