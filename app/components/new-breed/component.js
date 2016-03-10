@@ -1,31 +1,30 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  activityLevels: [
-    { name: 'low', description: 'couch potato' },
-    { name: 'medium', description: 'long walks on the beach' },
-    { name: 'high', description: 'mountaineer' },
-  ],
+  dogFilter: Ember.inject.service(),
+
+  nameIsValid: Ember.computed.notEmpty('name'),
+  activityLevelIsValid: Ember.computed.notEmpty('activityLevel'),
+  maintenanceLevelIsValid: Ember.computed.notEmpty('maintenanceLevel'),
+  sizeIsValid: Ember.computed.notEmpty('size'),
+  formIsValid: Ember.computed.and('nameIsValid',
+      'activityLevelIsValid',
+      'maintenanceLevelIsValid',
+      'sizeIsValid'
+    ),
+  submitIsDisabled: Ember.computed.not('formIsValid'),
+
+  activityLevels: Ember.computed.alias('dogFilter.activityLevels'),
   activityLevel: '',
 
-  maintenanceLevels: [
-    { name: 'low', description: 'go with the flow' },
-    { name: 'medium', description: 'a little yappy' },
-    { name: 'high', description: 'prima donna' },
-  ],
+  maintenanceLevels: Ember.computed.alias('dogFilter.maintenanceLevels'),
   maintenanceLevel: '',
 
-  sizes: [
-    { name: 'extra-small', description: 'smaller than a breadbox' },
-    { name: 'small', description: "can't reach the counter" },
-    { name: 'medium', description: 'still fits on your lap' },
-    { name: 'large', description: 'thinks he fits on your lap' },
-    { name: 'extra-large', description: 'bear' },
-  ],
+  sizes: Ember.computed.alias('dogFilter.sizes'),
   size: '',
 
   actions: {
-    handleFocus(select, event) {
+    handleFocus(select) {
       select.actions.open();
     },
 

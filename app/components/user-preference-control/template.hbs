@@ -1,0 +1,27 @@
+<div class="col-sm-4">
+  {{#power-select-multiple
+    options=dogFilter.sizes
+    placeholder="Size"
+    selected=dogFilter.preferences.sizes
+    searchField="name"
+    selectedItemComponent="power-select-value-name"
+    onchange=(action (mut sizePreferences))
+    as |size|
+  }}
+    {{size.name}}: {{size.description}}
+  {{/power-select-multiple}}
+</div>
+
+<div class="col-sm-4">
+  {{#power-select-multiple
+    options=dogFilter.activityLevels
+    placeholder="Activity Level"
+    selected=dogFilter.preferences.activityLevels
+    searchField="name"
+    selectedItemComponent="power-select-value-name"
+    onchange=(action (mut activityLevelPreferences))
+    as |activityLevel|
+  }}
+    {{activityLevel.name}}: {{activityLevel.description}}
+  {{/power-select-multiple}}
+</div>

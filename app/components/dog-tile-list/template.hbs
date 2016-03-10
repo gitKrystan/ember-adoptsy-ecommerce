@@ -1,0 +1,8 @@
+<div class="row">
+  {{user-preference-control}}
+</div>
+<div class="row">
+  {{#each dogFilter.filteredDogs as |dog|}}
+    {{dog-tile-with-modal dog=dog}}
+  {{/each}}
+</div>
