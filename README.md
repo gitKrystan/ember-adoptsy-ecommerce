@@ -1,7 +1,8 @@
-# Marketplace
+# Adoptsy
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+##### By Krystan Menne and Nathan Romike
+
+Adoptsy is an Ember.js e-commerce app to manage dog adoptions. Admins can add dogs to a Firebase database; based on the dog's breed, the app categorizes the dog based on activity level, size potential, etc. Users can filter dogs by their preferences and add dogs to their "Doghouse" (a shopping cart type service) in order to schedule an appointment to meet the dogs.
 
 ## Prerequisites
 
@@ -25,29 +26,8 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
 ### Building
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
